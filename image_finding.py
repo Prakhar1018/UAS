@@ -3,7 +3,7 @@ import numpy as np
 from landOceanSeg import *
 
 def compress(coords, eps=50):
-    coords = [tuple(map(float, c)) for c in coords]  #converting to Python floats
+    coords = [tuple(map(float, c)) for c in coords]  
     clusters = []  # list of lists
 
     for point in coords:
@@ -55,8 +55,9 @@ def wmap(path: str, temp_paths: dict[str:list[tuple[int, int]]]) -> dict[str:lis
         coordinates = compress(coordinates)
         for pt in coordinates:
             obj[fav].append(pt)
-            #cv.circle(img_rgb, pt, 5, (255, 0, 0), -1)  # blue filled circle
+            
         coordinates=[]
     img_rgb = overlap(img_rgb)
     cv.imwrite(f'res.png',img_rgb)
     return obj
+
