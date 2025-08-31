@@ -13,7 +13,7 @@ def overlap(img):
     upper_blue = np.array([120, 255, 255]) 
     lower_grey = np.array([0, 0, 180])    
     upper_grey = np.array([180, 30, 255]) 
-    lower_green = np.array([35, 50, 100])   # H, S, V
+    lower_green = np.array([35, 50, 100])   
     upper_green = np.array([75, 255, 255])
     lower_red =np.array([0, 70, 200])  
     upper_red = np.array([10, 130, 255])     
@@ -36,7 +36,7 @@ def overlap(img):
     overlay[ocean_mask > 0] = (255, 0, 0)  # bright blue for ocean
 
     output = cv2.addWeighted(img, 0.5, overlay, 0.5, 0)
-    output[pink_mask>0] = (255, 0, 255)        #setting all the pixels to same color
+    output[pink_mask>0] = (255, 0, 255)       
     output[grey_mask>0] = (128, 128, 128)
     output[blue_mask>0] = (255, 0 , 0)
     output[green_mask>0] = (0, 255 , 0)
@@ -48,3 +48,4 @@ def overlap(img):
     # cv2.imwrite("grey_mask.jpg",grey_mask)
     cv2.imwrite("blue_mask.jpg",blue_mask)
     return output
+
